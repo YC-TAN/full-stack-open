@@ -1,17 +1,27 @@
-const InputField = ({ label, value, onChange }) => {
+const InputField = ({ label, name, value, onChange }) => {
   return (
     <div>
       {label}
-      <input value={value} onChange={onChange} />
+      <input name={name} value={value} onChange={onChange} />
     </div>
   );
 };
 
-const PersonForm = ({ onSubmit, newName, onNameChange, newNumber, onNumberChange }) => {
+const PersonForm = ({ onSubmit, person, onChange }) => {
   return (
     <form onSubmit={onSubmit}>
-      <InputField label="name" value={newName} onChange={onNameChange} />
-      <InputField label="number" value={newNumber} onChange={onNumberChange} />
+      <InputField 
+        label="name: " 
+        name="name"
+        value={person.name} 
+        onChange={onChange} 
+      />
+      <InputField 
+        label="number: " 
+        name="number"
+        value={person.number} 
+        onChange={onChange} 
+      />
       <div>
         <button type="submit">add</button>
       </div>
