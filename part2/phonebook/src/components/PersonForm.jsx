@@ -7,11 +7,21 @@ const InputField = ({ label, value, onChange }) => {
   );
 };
 
-const PersonForm = ({ onSubmit, newName, onNameChange, newNumber, onNumberChange }) => {
+const PersonForm = ({
+  onSubmit,
+  newName,
+  onNameChange,
+  newNumber,
+  onNumberChange,
+}) => {
   return (
     <form onSubmit={onSubmit}>
-      <InputField label="name" value={newName} onChange={onNameChange} />
-      <InputField label="number" value={newNumber} onChange={onNumberChange} />
+      <InputField label="name: " value={newName} onChange={onNameChange} />
+      <InputField
+        label="number: "
+        value={newNumber}
+        onChange={onNumberChange}
+      />
       <div>
         <button type="submit">add</button>
       </div>

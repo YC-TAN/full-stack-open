@@ -1,7 +1,8 @@
-const ContactLine = ({ name, number }) => {
+const ContactLine = ({ name, number, onClick }) => {
   return (
     <p>
-      {name} {number}
+      {`${name} ${number} `}
+      <button onClick={onClick}>delete</button>
     </p>
   );
 };
