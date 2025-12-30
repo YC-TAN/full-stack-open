@@ -1,25 +1,23 @@
 import { useEffect, useState } from "react";
 import countryService from "./services/countries";
 import Filter from "./components/Filter";
+import Country from "./components/Country";
 import CountryDisp from "./components/CountryDisp";
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [newFilter, setNewFilter] = useState("");
+  const [country, setCountry] = useState(null);
 
   useEffect(() => {
-    console.log(countries)
-    console.log("fetching")
-    countryService
-      .getAll()
-      .then((initialData) => {
-        console.log("response",initialData)
-        setCountries(initialData);
-      });
+    countryService.getAll().then((initialData) => {
+      setCountries(initialData);
+    });
   }, []);
 
   const handleFilterChange = (e) => {
     setNewFilter(e.target.value);
+    setCountry(null);
   };
 
   const countryToShow = (filterText) => {
@@ -32,7 +30,11 @@ function App() {
   return (
     <>
       <Filter onChange={handleFilterChange} />
-      <CountryDisp countries={countryToShow(newFilter)}/>
+      {country ? (
+        <Country country={country} />
+      ) : (
+        <CountryDisp countries={countryToShow(newFilter)} onShow={setCountry} />
+      )}
     </>
   );
 }

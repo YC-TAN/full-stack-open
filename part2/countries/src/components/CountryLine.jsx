@@ -1,8 +1,8 @@
-const CountryLine = ({ name }) => {
+const CountryLine = ({ name, onClick }) => {
   return (
     <li className="country">
       {`${name} `}
-      {/* <button onClick={onClick}>Show</button> */}
+      <button onClick={onClick}>Show</button>
     </li>
   );
 };
