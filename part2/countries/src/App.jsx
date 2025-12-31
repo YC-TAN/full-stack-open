@@ -31,10 +31,8 @@ function App() {
 
   const handleShow = (country) => {
     setCountry(country);
-    setWeather(null);
 
     const [lat, lng] = country.capitalInfo.latlng;
-    console.log(lat, lng);
     countryService.getWeather(lat, lng).then((r) => {
       setWeather(r);
     });
