@@ -6,7 +6,7 @@ const {
     listWithOneBlog, 
     blogs, 
     blogsWithDiffType
-} = require('./helpers/blogs')
+} = require('./helpers/data')
 
 const favoriteBlog = require('../utils/list_helper').favoriteBlog
 

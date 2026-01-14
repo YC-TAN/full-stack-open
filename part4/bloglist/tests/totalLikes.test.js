@@ -5,7 +5,7 @@ const {
     emptyBlogs, 
     listWithOneBlog, 
     blogs
-} = require('./helpers/blogs')
+} = require('./helpers/data')
 
 const totalLikes = require('../utils/list_helper').totalLikes
 
